@@ -46,3 +46,9 @@ body {
   outline: transparent;
   box-shadow: 0 0 0 2px var(--blue);
 }
+
+header,
+main {
+  margin: 0 auto;
+  max-width: 1120px;
+}

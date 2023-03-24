@@ -1,59 +1,27 @@
 // Styles
 import './global.css'
 import styles from './App.module.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-// Images
-import Logo from './assets/logo.svg'
-import CoffeeDelivery from './assets/coffee-delivery.png'
+// Components
+import { Header } from './components/Header'
 
-// Icons
-import Pin from './assets/icons/pin.svg'
-import CartYellow from './assets/icons/cart-yellow.svg'
+// Pages
+import { Home } from './pages/Home'
+import { Checkout } from './pages/Checkout'
+import { Success } from './pages/Success'
 
-function App() {
+export default function App() {
   return (
-    <>
-      <header>
-        <div className={styles.header}>
-          <img src={Logo} alt="Coffee Delivery" />
-
-          <div>
-            <span>
-              <img src={Pin} alt="" /> São José dos Campos, SP
-            </span>
-            <span>
-              <img src={CartYellow} alt="" />
-              Carrinho
-            </span>
-          </div>
-        </div>
-      </header>
-
+    <BrowserRouter>
+      <Header />
       <main>
-        <section className={styles.container}>
-          <div>
-            <div>
-              <h1>Econtre o café perfeito para qualquer hora do dia</h1>
-              <p>
-                Com o Coffee Delivery você recebe seu café onde estiver, a
-                qualquer hora
-              </p>
-            </div>
-
-            <div>
-              <span>Compra simples e segura</span>
-              <span>Compra simples e segura</span>
-              <span>Compra simples e segura</span>
-              <span>Compra simples e segura</span>
-            </div>
-          </div>
-          <div>
-            <img src={CoffeeDelivery} alt="" />
-          </div>
-        </section>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/success" element={<Success />} />
+        </Routes>
       </main>
-    </>
+    </BrowserRouter>
   )
 }
-
-export default App
